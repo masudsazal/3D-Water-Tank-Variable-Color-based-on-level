@@ -73,26 +73,26 @@
         $(document).ready(initialFunction());
 
         function initialFunction() {
+
             $('.waterTankHere1').waterTank({
-                width: w,
-                height: h,
-                color: default_color,
-                level: l
-            });
+                    width: w,
+                    height: h,
+                    color: default_color,
+                    level: l
+                })
+                .on('click', function(event) {
 
-            setInterval(function() {
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        wl = Number(this.responseText);
-                        $('.waterTankHere1').waterTank(wl + 0);
-                    }
-                };
-                xhttp.open("GET", "/waterlevelpercentage", true)
-                xhttp.send();
+                    var a = Math.random() * 100;
+                    var b = a.toFixed(2) * 1;
+                    $(this).waterTank(b + 0);
+                    //document.getElementById("rd").innerHTML=b;
+                    //document.getElementById("a").innerHTML=8;
 
 
-            }, 500);
+                });
+
+
+
 
         }
     </script>
